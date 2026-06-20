@@ -1,0 +1,22 @@
+{
+  "name": "@certificate-dapp/contracts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:testnet": "hardhat run scripts/deploy.js --network sepolia",
+    "node": "hardhat node",
+    "test": "hardhat test",
+    "verify": "hardhat verify"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "ethers": "^6.15.0",
+    "hardhat": "^2.26.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.16.3",
+    "typescript": "^5.6.3"
+  }
+}

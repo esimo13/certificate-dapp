@@ -1,27 +1,31 @@
 {
-  "name": "certificate",
-  "version": "0.1.0",
+  "name": "certificate-verification-dapp",
+  "version": "1.0.0",
+  "description": "Decentralized certificate verification system using blockchain",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "npm run dev --workspace=@certificate-dapp/frontend",
+    "build": "npm run build --workspaces",
+    "start:frontend": "npm run dev --workspace=@certificate-dapp/frontend",
+    "start:backend": "npm run dev --workspace=certificate-backend",
+    "deploy:contracts": "npm run deploy --workspace=@certificate-dapp/contracts",
+    "blockchain": "npm run node --workspace=@certificate-dapp/contracts",
+    "setup": "npm install"
   },
-  "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.4.5"
-  },
+  "keywords": [
+    "blockchain",
+    "certificate",
+    "verification",
+    "ethereum",
+    "nextjs",
+    "dapp"
+  ],
+  "author": "Certificate DApp Team",
+  "license": "MIT",
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.5",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5.6.3"
   }
 }
