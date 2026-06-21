@@ -54,7 +54,7 @@ async function initializeServices() {
     );
 
     // Initialize Ethereum provider (Hardhat local network)
-    provider = new ethers.JsonRpcProvider('http://127.0.0.1:8545');
+    provider = new ethers.JsonRpcProvider('process.env.RPC_URL');
     
     // Get signer (first account from Hardhat)
     signer = await provider.getSigner();
