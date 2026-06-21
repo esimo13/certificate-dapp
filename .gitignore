@@ -16,7 +16,7 @@
 # next.js
 /.next/
 /out/
-
+.env*
 # production
 /build
 
@@ -25,7 +25,7 @@
 *.pem
 
 # Temporary files
-*.pdf
+# *.pdf
 
 # debug
 npm-debug.log*
