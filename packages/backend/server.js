@@ -56,9 +56,14 @@ async function initializeServices() {
     // Initialize Ethereum provider (Hardhat local network)
     const rpcUrl = process.env.RPC_URL || process.env.HARDHAT_RPC_URL || 'http://127.0.0.1:8545';
     provider = new ethers.JsonRpcProvider(rpcUrl);
-    
-    // Get signer (first account from Hardhat)
-    signer = await provider.getSigner();
+
+    // Use explicit wallet for remote RPCs; fallback to node signer for local Hardhat
+    const privateKey = process.env.PRIVATE_KEY?.trim();
+    if (privateKey) {
+      signer = new ethers.Wallet(privateKey, provider);
+    } else {
+      signer = await provider.getSigner();
+    }
 
     // Contract ABI and address (will be set after deployment)
     const contractABI = [
